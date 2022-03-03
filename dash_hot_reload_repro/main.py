@@ -1,4 +1,6 @@
 from dash import Dash, html, dcc
+import waitress
+
 import plotly.express as px
 import pandas as pd
 
@@ -28,4 +30,5 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.enable_dev_tools(debug=True)
+    waitress.serve(app.server, host="127.0.0.1", port=8050)
